@@ -13,6 +13,7 @@ class CreateProductoTable extends Migration
             $table->string('nombre_producto')->nullable(false);
             $table->decimal('precio_compra', $precision=(8),$escala=(2))->nullable(false);
             $table->string('marca')->nullable(false);
+            $table->integer('stock')->unsigned()->nullable();
             $table->unsignedBigInteger('proveedor_id');
             $table->foreign('proveedor_id')->references('id')->on('proveedors');
             $table->rememberToken();

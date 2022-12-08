@@ -5,7 +5,7 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-    <h1>Edit Producto</h1>
+    <h1>Editando Producto</h1>
     <div class="card">
         <div class="card-body">
             <form action="{{route('productos.update', $producto->id)}}" method="POST">

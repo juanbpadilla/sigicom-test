@@ -13,6 +13,10 @@ class Traslado extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function cliente()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function producto()
     {
         return $this->belongsTo(Producto::class);

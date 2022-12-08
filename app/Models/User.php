@@ -68,6 +68,16 @@ class User extends Authenticatable
     {
         return $this->hasRoles(['admin']);
     }
+
+    public function isVenta()
+    {
+        return $this->hasRoles(['venta']);
+    }
+    public function isCaja()
+    {
+        return $this->hasRoles(['caja']);
+    }
+
     public function isClient()
     {
         return $this->hasRoles(['user']);
@@ -104,5 +114,8 @@ class User extends Authenticatable
             return 'checked';
         }
         return '';
+    }
+    public function misRoles() {
+        return $this->roles;
     }
 }

@@ -15,11 +15,20 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table -> bigIncrements('id');
-            $table -> date('fecha_factura')->nullable(false);
-            $table -> integer('precio_unitario');
+            $table -> date('fecha_venta')->nullable(false);
             $table -> integer('cantidad_producto');
-            $table -> decimal('total', $precision=(10),$escala=(3))->nullable(false);
             $table -> string('descripcion')->nullable(false);
+            $table -> decimal('precio_unitario', $precision=(10),$escala=(3))->nullable(false);
+            $table -> decimal('total_venta', $precision=(10),$escala=(3))->nullable(false);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('productos');
             $table -> rememberToken();
             $table -> timestamps();
         });

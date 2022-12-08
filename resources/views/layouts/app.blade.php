@@ -132,12 +132,12 @@
                         </div>
                     </div>
     
-                    @if (auth()->user()->hasRoles(['admin','caja','venta']))
-                        <!-- MENU DEL SISTEMA -->
-                        <nav class="mt-2">
-                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                                data-accordion="false">
-        
+                    <!-- MENU DEL SISTEMA -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                            data-accordion="false">
+    
+                            @if (auth()->user()->hasRoles(['admin']))
                                 <!-- Usuarios -->
                                 <li class="nav-item">
                                     <a href="{{ route('usuarios.index') }}" class="nav-link">
@@ -145,34 +145,34 @@
                                         <p>Usuarios</p>
                                     </a>
                                 </li>
-                                
-                                @if (auth()->user()->hasRoles(['admin']))
-                                    <!-- roles -->
-                                    <li class="nav-item">
-                                        <a href="{{ route('roles.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Roles</p>
-                                        </a>
-                                    </li>
-                                @endif
-        
-                                <!-- productos -->
+                            
+                                <!-- roles -->
                                 <li class="nav-item">
-                                    <a href="{{ route('productos.index') }}" class="nav-link">
+                                    <a href="{{ route('roles.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Productos</p>
+                                        <p>Roles</p>
                                     </a>
                                 </li>
-                                <!-- Compras -->
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Compras</p>
-                                    </a>
-                                </li>
+                            @endif
+    
+                            <!-- productos -->
+                            <li class="nav-item">
+                                <a href="{{ route('productos.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Productos</p>
+                                </a>
+                            </li>
+                            <!-- Compras -->
+                            <li class="nav-item">
+                                <a href="{{ route('compras.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Compras</p>
+                                </a>
+                            </li>
+                            @if (auth()->user()->hasRoles(['admin','venta','caja']))
                                 <!-- Ventas -->
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="{{ route('ventas.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Ventas</p>
                                     </a>
@@ -199,13 +199,14 @@
                                         <p>Proveedores</p>
                                     </a>
                                 </li>
-                            </ul>
-                            </li>
-        
-                            </ul>
-                        </nav>
+                            @endif
+                        </ul>
+                        </li>
+    
+                        </ul>
+                    </nav>
                     <!-- /.sidebar-menu -->
-                    @endif
+                    
     
                 </div>
                 <!-- /.sidebar -->
