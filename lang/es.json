@@ -1,6 +1,7 @@
 
 {
     "Register": "Registrar",
+    "register": "Registrar",
     "Name": "Nombre",
     "Last name": "Apellido",
     "Phone": "Teléfono",
@@ -15,6 +16,10 @@
     "Ensure your account is using a long, random password to stay secure.":"Asegúrese de usar una contraseña larga y aleatoria para mantenerse seguro.",
     "Administrative Information":"Información administrativa",
     "Delete":"Eliminar",
+    "login" : "Iniciar Sesión",
+    "Log in" : "Iniciar Sesión",
+    "Forgot your password?": "¿Olvidaste tu contraseña?",
+    "Remember me" : "Recuérdame",
     
     
     "Verify Your Email Address": "Verifica tu email",

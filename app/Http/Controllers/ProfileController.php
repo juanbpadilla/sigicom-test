@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware(['auth','roles:admin,caja']);
-        // $this->middleware('auth', ['except' => ['show, create, store']]);
-        // $this->middleware('roles:venta', ['except' => ['edit', 'update','show', 'index', 'destroy', 'create']]);
-    }
+    // function __construct()
+    // {
+    //     $this->middleware(['auth','roles:admin,caja']);
+    //     // $this->middleware('auth', ['except' => ['show, create, store']]);
+    //     // $this->middleware('roles:venta', ['except' => ['edit', 'update','show', 'index', 'destroy', 'create']]);
+    // }
     /**
      * Display the user's profile form.
      *
@@ -39,20 +39,17 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileUpdateRequest $request, $id)
+    public function update(ProfileUpdateRequest $request)
     {
-        $user = User::findOrFail($id);
         $request->user()->fill($request->validated());
-
+        
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-
-        if ($request->roles != null)
-        {
-            $user->roles()->sync($request->roles);
-        }
-
+        // dd($request->email);
+        // $user = User::find;
+        // dd($user);
+        
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');

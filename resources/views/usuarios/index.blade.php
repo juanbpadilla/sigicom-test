@@ -38,15 +38,14 @@
                                 <td class="text-center">{{ $user -> telefono}}</td>
                                 <td class="text-center">{{ $user -> email}}</td>
                                 <td class="text-center"><p class="text-center text-{{ $user -> estado ? 'success' : 'danger'}}">{{ $user -> estado ? 'ACTIVO' : 'INACTIVO'}}</p></td>
-                                {{-- <td width="170px">
+                                <td width="170px">
                                     <form action="{{route('usuarios.destroy',$user->id)}}" method="POST">
                                         <a href="{{route('usuarios.edit',$user->id)}}" class="btn btn-sm btn-primary">Editar</a>
                                         @method('delete')
                                         @csrf
-                                        {{-- <input type="submit" value="Eliminar" class="btn btn-danger btn-sm"> --}}
-                                        {{-- <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button> --}}
-                                    {{-- </form> --}}
-                                {{-- </td> --}}
+                                        <input type="submit" value="Eliminar" class="btn bg-red-600 border border-transparent font-semibold text-white uppercase btn-sm">
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -93,17 +94,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
         // dd($request).array();
         $user = User::findOrFail($id);
 
         // dd($user);
 
-        $user->update($request->only('name','apellidos','telefono','email', 'estado'));
+        $user->update($request->only('estado'));
 
         $user->roles()->sync($request->roles);
 
+        // return back()->with('info', 'Usuario actualizado');
         return back()->with('info', 'Usuario actualizado');
     }
 
