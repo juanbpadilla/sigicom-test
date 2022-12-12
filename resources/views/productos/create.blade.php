@@ -11,8 +11,8 @@
             <form action="{{route('productos.store')}}" method="POST">
             @csrf
             <div class="form group">
-                <label for="nombre">Nombre de Producto</label><br>
-                <input type="text" name="nombre" class="form-control" placeholder="Escriba el nombre del producto" required><br>
+                <label for="nombre_producto">Nombre de Producto</label><br>
+                <input type="text" name="nombre_producto" id="nombre_producto" class="form-control" placeholder="Escriba el nombre del producto" required><br>
                 <label for="precio">Precio de Compra</label><br>
                 <input type="text" name="precio" class="form-control" placeholder="Escriba el precio de compra Bs."><br>
                 <label for="marca">Marca del producto</label><br>

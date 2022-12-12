@@ -5,6 +5,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Proveedor;
+use Illuminate\Contracts\View\View;
 
 class ProductoController extends Controller
 {
@@ -42,15 +43,16 @@ class ProductoController extends Controller
      */
 
     public function store(Request $request)
-    { //guardar BD los Registro
-        $productos=new Producto();
-        $productos->nombre_producto=$request->nombre;
-        $productos->precio_compra=$request->precio;
-        $productos->marca=$request->marca;
-        $productos->estado=$request->estado;
-        $productos->stock=0;
-        $productos->proveedor_id=$request->proveedor_id;
-        $productos->save();
+    { 
+        // dd($request);
+        Producto::create([
+            'nombre_producto' => $request['nombre_producto'],
+            'precio_compra'   => $request['precio'],
+            'marca'           => $request['marca'],
+            'stock'           => 0,
+            'proveedor_id'    => $request['proveedor_id']
+        ]);
+
         return redirect()->route('productos.index');
     }
     public function Preate()

@@ -5,7 +5,7 @@
     <br>
     @if (auth()->user()->hasRoles(['admin','vendedor']))
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mr-8">
-            <a href="{{route('roles.create')}}" class="btn btn-primary mb-3">Nuevo Producto</a>
+            <a href="{{route('productos.create')}}" class="btn btn-primary mb-3">Nuevo Producto</a>
         </div>
     @endif
     <div class="card mt-4 ml-2 mr-2">

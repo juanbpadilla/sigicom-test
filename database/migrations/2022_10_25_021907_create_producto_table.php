@@ -10,7 +10,7 @@ class CreateProductoTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre_producto')->nullable(false);
+            $table->text('nombre_producto');
             $table->decimal('precio_compra', $precision=(8),$escala=(2))->nullable(false);
             $table->string('marca')->nullable(false);
             $table->integer('stock')->unsigned()->nullable();

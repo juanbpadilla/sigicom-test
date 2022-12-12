@@ -35,5 +35,24 @@ class RegistrationTest extends TestCase
         $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);
 
+    
+    }
+    public function test_nombre_requerido()
+    {
+
+        $response = $this->post('/register', [
+            'name' => '',
+            'apellidos' => 'apellido_user',
+            'telefono' => 6546216,
+            'email' => 'test@example.com',
+            'estado' => 1,
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $response->assertSessionHasErrors('name');
+        $this->assertGuest();
+        // $response->assertRedirect(RouteServiceProvider::HOME);
+
     }
 }

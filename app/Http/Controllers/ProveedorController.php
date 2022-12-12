@@ -36,17 +36,25 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        $proveedores = new Proveedor();
-        $proveedores -> nombre_proveedor= strtoupper($request->nombre);
-        $proveedores -> apellido_preveedor= strtoupper($request->apellido);
-        $proveedores -> direccion_proveedor= strtoupper($request->direccion);
-        $proveedores -> pais_proveedor= strtoupper($request->pais);
-        $proveedores -> empre_proveedor= strtoupper($request->empresa);
-        $proveedores -> telefono= strtoupper($request->telefono);
-        $proveedores -> correo= $request->correo;
-        $proveedores -> estado= strtoupper('activo');
-        $proveedores->password =Hash::make($request->password);
-        $proveedores->save();
+        // $proveedores = new Proveedor();
+        // $proveedores -> nombre_proveedor= strtoupper($request->nombre);
+        // $proveedores -> apellido_preveedor= strtoupper($request->apellido);
+        // $proveedores -> direccion_proveedor= strtoupper($request->direccion);
+        // $proveedores -> telefono= strtoupper($request->telefono);
+        // $proveedores -> correo= $request->correo;
+        // $proveedores -> estado= strtoupper('activo');
+        // $proveedores->password =Hash::make($request->password);
+        // $proveedores->save();
+
+        Proveedor::create([
+            'nombre_proveedor'   => $request['nombre'],
+            'apellido_preveedor' => $request['apellido'],
+            'direccion_proveedor'=> $request['direccion'],
+            'telefono'           => $request['telefono'],
+            'correo'             => $request['correo'],
+            'password'           => Hash::make($request->password)
+        ]);
+
         return redirect()->route('proveedores.index');
     }
 

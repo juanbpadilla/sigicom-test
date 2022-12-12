@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    // protected $fillable = [
+    //     'nombre_producto',
+    //     'precio_compra',
+    //     'marca',
+    //     'stock',
+    // ];
+
     public function proveedor(){
         return $this->belongsTo(Proveedor::class);
     }

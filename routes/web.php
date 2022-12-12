@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompraController;
-use App\Http\Controllers\ProductoController;
+// use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\RolController;
@@ -24,6 +24,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::resource('/productos', 'ProductoController');
+// Route::post('productos', 'ProductoController@store')->name('productos.store');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -41,5 +44,4 @@ Route::resource('/productos', ProductoController::class);
 Route::resource('/proveedores', ProveedorController::class);
 Route::resource('/compras', CompraController::class);
 Route::resource('/ventas', VentaController::class);
-
 require __DIR__.'/auth.php';

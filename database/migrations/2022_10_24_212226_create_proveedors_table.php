@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('proveedors', function (Blueprint $table) {
             $table -> bigIncrements('id');
             $table -> string('nombre_proveedor');
-            $table -> string('apellido_preveedor');
-            $table -> string('direccion_proveedor');
+            $table -> string('apellido_preveedor')->nullable();
+            $table -> string('direccion_proveedor')->nullable();
             $table -> integer('telefono')->nullable();
             $table -> string('correo')->unique();
             $table->string('password');
